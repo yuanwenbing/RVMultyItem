@@ -1,9 +1,13 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.recyclerviewmultyitemdemo.model;
+
+import com.yuan.annotation.Path;
+import com.yuan.multy_item.IItemData;
 
 /**
  * Created by yuan 2019/2/15.
  */
-public class MockData implements IItemData {
+@Path(path = "com.yuan.recyclerviewmultyitemdemo")
+public class Data implements IItemData {
 
     private int type;
 

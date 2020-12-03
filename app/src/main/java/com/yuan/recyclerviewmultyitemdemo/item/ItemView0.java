@@ -1,4 +1,4 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.recyclerviewmultyitemdemo.item;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -9,30 +9,37 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yuan.annotation.Item;
+import com.yuan.multy_item.IItemData;
+import com.yuan.multy_item.IItemVew;
+import com.yuan.recyclerviewmultyitemdemo.model.Data;
+import com.yuan.recyclerviewmultyitemdemo.R;
+
 /**
  * Created by yuan 2019/2/13.
  */
-public class ItemView2 extends LinearLayout implements IItemVew{
+@Item(type = 0)
+public class ItemView0 extends LinearLayout implements IItemVew {
 
     private TextView mTextView;
 
-    public ItemView2(Context context) {
+    public ItemView0(Context context) {
         this(context, null);
     }
 
-    public ItemView2(Context context, @Nullable AttributeSet attrs) {
+    public ItemView0(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, -1);
     }
 
-    public ItemView2(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ItemView0(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize();
     }
 
     protected void initialize() {
-        inflate(getContext(), R.layout.item_layout_2, this);
-        RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        inflate(getContext(), R.layout.item_layout_0, this);
         setPadding(0, 20, 0, 0);
+        RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         setLayoutParams(layoutParams);
         mTextView = findViewById(R.id.textView);
     }
@@ -44,7 +51,7 @@ public class ItemView2 extends LinearLayout implements IItemVew{
 
     @Override
     public void setData(int position, IItemData data) {
-        MockData mockData = (MockData) data;
+        Data mockData = (Data) data;
         mTextView.setText(mockData.getTitle());
     }
 }

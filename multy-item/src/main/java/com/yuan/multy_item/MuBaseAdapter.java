@@ -1,4 +1,4 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.multy_item;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,16 +11,13 @@ import java.util.List;
 /**
  * Created by yuan 2019/2/13.
  */
-public abstract class RBaseAdapter<T extends IItemData> extends RecyclerView.Adapter<VH> {
+public abstract class MuBaseAdapter<T extends IItemData> extends RecyclerView.Adapter<VH> {
 
     private List<T> mDataList = new ArrayList<>();
 
     @NonNull
     @Override
-    public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        IItemVew view = ViewFactory.getViewProxy(parent.getContext(), viewType);
-        return new VH(view);
-    }
+    public abstract VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
 
 
     public void setData(@Nullable List<T> list) {

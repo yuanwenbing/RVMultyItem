@@ -1,9 +1,16 @@
 package com.yuan.recyclerviewmultyitemdemo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
+
+import com.yuan.multy_item.IItemVew;
+import com.yuan.multy_item.MuBaseAdapter;
+import com.yuan.multy_item.VH;
+import com.yuan.recyclerviewmultyitemdemo.model.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         Random random = new Random();
-        List<MockData> list = new ArrayList<>();
+        List<Data> list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            MockData data = new MockData();
+            Data data = new Data();
             data.setTitle("title" + i);
-            data.setType(random.nextInt(3));
+            data.setType(random.nextInt(5));
             list.add(data);
         }
 
@@ -34,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
         adapter.setData(list);
     }
 
-    private class SimpleAdapter extends RBaseAdapter<MockData> {
+    private class SimpleAdapter extends MuBaseAdapter<Data> {
 
-        public void deleteItem(int position) {
-
+        @NonNull
+        @Override
+        public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            IItemVew view = com.yuan.recyclerviewmultyitemdemo.ItemViewFactory.getViewProxy(parent.getContext(), viewType);
+            return new VH(view);
         }
     }
 

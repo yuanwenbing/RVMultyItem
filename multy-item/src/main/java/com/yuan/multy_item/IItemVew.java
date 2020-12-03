@@ -1,15 +1,12 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.multy_item;
 
 import android.view.View;
 
 /**
  * Created by yuan 2019/2/13.
  */
-public interface IItemVew {
 
-    int VIEW_TYPE_0 = 0;
-    int VIEW_TYPE_1 = 1;
-    int VIEW_TYPE_2 = 2;
+public interface IItemVew {
 
     View getItemView();
 

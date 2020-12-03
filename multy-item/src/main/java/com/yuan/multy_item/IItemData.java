@@ -1,4 +1,4 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.multy_item;
 
 /**
  * Created by yuan 2019/2/13.

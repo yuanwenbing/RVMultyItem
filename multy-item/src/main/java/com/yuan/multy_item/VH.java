@@ -1,11 +1,11 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.multy_item;
 
 import android.support.v7.widget.RecyclerView;
 
-class VH extends RecyclerView.ViewHolder {
+public class VH extends RecyclerView.ViewHolder {
     private IItemVew itemVew;
 
-    VH(IItemVew itemView) {
+    public VH(IItemVew itemView) {
         super(itemView.getItemView());
         this.itemVew = itemView;
     }

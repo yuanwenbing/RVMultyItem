@@ -1,1 +1,3 @@
+include ':multy-item'
+include ':multy-item-annotation'
 include ':app'
