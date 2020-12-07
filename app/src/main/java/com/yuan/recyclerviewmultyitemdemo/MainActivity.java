@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             Data data = new Data();
             data.setTitle("title" + i);
-            data.setType(random.nextInt(5));
+            data.setType(random.nextInt(3));
             list.add(data);
         }
 
@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setData(list);
     }
 
-    private class SimpleAdapter extends MuBaseAdapter<Data> {
-
+    private static class SimpleAdapter extends MuBaseAdapter<Data> {
         @NonNull
         @Override
         public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             return new VH(view);
         }
     }
-
 
 }
 
