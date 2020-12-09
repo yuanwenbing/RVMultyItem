@@ -10,6 +10,6 @@ public interface IItemVew {
 
     View getItemView();
 
-    <T extends IItemData>void setData(int position, T data);
+    <T extends IItemData>void setData(int position, T data, IItemEvent itemEvent);
 }
 

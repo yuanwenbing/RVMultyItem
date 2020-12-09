@@ -13,6 +13,15 @@ import java.util.List;
  */
 public abstract class MuBaseAdapter<T extends IItemData> extends RecyclerView.Adapter<VH> {
 
+    IItemEvent mItemEvent;
+
+    public MuBaseAdapter() {
+    }
+
+    public MuBaseAdapter(IItemEvent itemEvent) {
+        this.mItemEvent = itemEvent;
+    }
+
     private List<T> mDataList = new ArrayList<>();
 
     @NonNull
@@ -46,7 +55,7 @@ public abstract class MuBaseAdapter<T extends IItemData> extends RecyclerView.Ad
     @Override
     public void onBindViewHolder(@NonNull VH viewHolder, int position) {
         T news = mDataList.get(position);
-        viewHolder.bindData(position, news);
+        viewHolder.bindData(position, news, mItemEvent);
     }
 
     @Override

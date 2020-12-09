@@ -6,10 +6,12 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yuan.annotation.Item;
 import com.yuan.multy_item.BItemView;
 import com.yuan.multy_item.IItemData;
+import com.yuan.multy_item.IItemEvent;
 import com.yuan.multy_item.IItemVew;
 import com.yuan.recyclerviewmultyitemdemo.R;
 import com.yuan.recyclerviewmultyitemdemo.model.Data;
@@ -52,9 +54,10 @@ public class ItemView0 extends BItemView implements IItemVew {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void setData(int position, IItemData data) {
+    public void setData(int position, IItemData data, @Nullable IItemEvent itemEvent) {
         Data mockData = (Data) data;
         mTextView.setText("类型0：" + mockData.getTitle());
+        handleItemClick(position, data, itemEvent);
     }
 
     @Override

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-public abstract class BItemView extends LinearLayout{
+public abstract class BItemView extends LinearLayout {
     public BItemView(Context context) {
         this(context, null);
     }
@@ -40,5 +40,10 @@ public abstract class BItemView extends LinearLayout{
     protected abstract @Size(min = 4, max = 4)
     int[] getPadding();
 
+    protected void handleItemClick(int position, IItemData data, IItemEvent itemEvent) {
+        if (itemEvent != null) {
+            setOnClickListener(v -> itemEvent.onItemClick(position, data));
+        }
+    }
 
 }

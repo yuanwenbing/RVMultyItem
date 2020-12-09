@@ -29,7 +29,7 @@ public class ItemViewDefault extends LinearLayout implements IItemVew {
     }
 
     @Override
-    public void setData(int position, IItemData data) {
+    public void setData(int position, IItemData data, IItemEvent itemEvent) {
 
     }
 }

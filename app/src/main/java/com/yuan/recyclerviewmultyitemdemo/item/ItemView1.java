@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.yuan.annotation.Item;
 import com.yuan.multy_item.BItemView;
 import com.yuan.multy_item.IItemData;
+import com.yuan.multy_item.IItemEvent;
 import com.yuan.multy_item.IItemVew;
 import com.yuan.recyclerviewmultyitemdemo.model.Data;
 import com.yuan.recyclerviewmultyitemdemo.R;
@@ -22,7 +23,7 @@ import com.yuan.recyclerviewmultyitemdemo.R;
  */
 
 @Item(type = 1)
-public class ItemView1 extends BItemView implements IItemVew{
+public class ItemView1 extends BItemView implements IItemVew {
 
     private TextView mTextView;
 
@@ -36,13 +37,6 @@ public class ItemView1 extends BItemView implements IItemVew{
 
     public ItemView1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void setData(int position, IItemData data) {
-        Data mockData = (Data) data;
-        mTextView.setText("类型1：" + mockData.getTitle());
     }
 
     @Override
@@ -63,5 +57,13 @@ public class ItemView1 extends BItemView implements IItemVew{
     @Override
     public View getItemView() {
         return this;
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void setData(int position, IItemData data, IItemEvent itemEvent) {
+        Data mockData = (Data) data;
+        mTextView.setText("类型1：" + mockData.getTitle());
+        handleItemClick(position, data, itemEvent);
     }
 }
