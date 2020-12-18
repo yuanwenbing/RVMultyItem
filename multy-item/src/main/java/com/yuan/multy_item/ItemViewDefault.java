@@ -1,35 +1,23 @@
 package com.yuan.multy_item;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.LinearLayout;
 
 /**
  * Created by yuan 2019/2/13.
  */
-public class ItemViewDefault extends LinearLayout implements IItemVew {
+public class ItemViewDefault extends BaseItemView implements IItemVew {
 
     public ItemViewDefault(Context context) {
-        this(context, null);
-    }
-
-    public ItemViewDefault(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, -1);
-    }
-
-    public ItemViewDefault(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context);
     }
 
     @Override
-    public View getItemView() {
-        return new LinearLayout(getContext());
+    protected int getContentView() {
+        return 0;
     }
 
     @Override
-    public void setData(int position, IItemData data, IItemEvent itemEvent) {
+    public <T extends IItemData> void setData(int position, T data, IItemEvent itemEvent) {
 
     }
 }

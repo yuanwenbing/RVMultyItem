@@ -1,4 +1,4 @@
-package com.yuan.recyclerviewmultyitemdemo.model;
+package com.yuan.recyclerviewmultyitemdemo;
 
 import com.yuan.annotation.Path;
 import com.yuan.multy_item.IItemData;
@@ -7,7 +7,7 @@ import com.yuan.multy_item.IItemData;
  * Created by yuan 2019/2/15.
  */
 @Path(path = "com.yuan.recyclerviewmultyitemdemo")
-public class Data implements IItemData {
+public class ItemData implements IItemData {
 
     private int type;
 

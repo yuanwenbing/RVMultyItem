@@ -2,20 +2,15 @@ package com.yuan.recyclerviewmultyitemdemo.item;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.graphics.Color;
 import android.widget.TextView;
 
 import com.yuan.annotation.Item;
-import com.yuan.multy_item.BItemView;
+import com.yuan.multy_item.BaseItemView;
 import com.yuan.multy_item.IItemData;
 import com.yuan.multy_item.IItemEvent;
 import com.yuan.multy_item.IItemVew;
-import com.yuan.recyclerviewmultyitemdemo.model.Data;
+import com.yuan.recyclerviewmultyitemdemo.ColorTemplate;
 import com.yuan.recyclerviewmultyitemdemo.R;
 
 /**
@@ -23,25 +18,10 @@ import com.yuan.recyclerviewmultyitemdemo.R;
  */
 
 @Item(type = 1)
-public class ItemView1 extends BItemView implements IItemVew {
-
-    private TextView mTextView;
+public class ItemView1 extends BaseItemView implements IItemVew {
 
     public ItemView1(Context context) {
         super(context);
-    }
-
-    public ItemView1(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public ItemView1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected void initialize() {
-        mTextView = findViewById(R.id.textView);
     }
 
     @Override
@@ -49,21 +29,13 @@ public class ItemView1 extends BItemView implements IItemVew {
         return R.layout.item_layout_1;
     }
 
-    @Override
-    protected int[] getPadding() {
-        return new int[]{0, 20, 0, 0};
-    }
-
-    @Override
-    public View getItemView() {
-        return this;
-    }
-
     @SuppressLint("SetTextI18n")
     @Override
     public void setData(int position, IItemData data, IItemEvent itemEvent) {
-        Data mockData = (Data) data;
-        mTextView.setText("类型1：" + mockData.getTitle());
-        handleItemClick(position, data, itemEvent);
+        TextView textView = findViewById(R.id.textView);
+        textView.setText("类型: " + data.getViewType() );
+        setBackgroundColor(Color.parseColor(ColorTemplate.COLOR_1));
+        setOnClickListener(v -> itemEvent.onItemClick(ItemView1.this, position, data));
     }
+
 }

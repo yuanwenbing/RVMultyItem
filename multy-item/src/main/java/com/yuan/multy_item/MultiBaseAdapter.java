@@ -11,14 +11,14 @@ import java.util.List;
 /**
  * Created by yuan 2019/2/13.
  */
-public abstract class MuBaseAdapter<T extends IItemData> extends RecyclerView.Adapter<VH> {
+public abstract class MultiBaseAdapter<T extends IItemData> extends RecyclerView.Adapter<VH> {
 
     IItemEvent mItemEvent;
 
-    public MuBaseAdapter() {
+    public MultiBaseAdapter() {
     }
 
-    public MuBaseAdapter(IItemEvent itemEvent) {
+    public MultiBaseAdapter(IItemEvent itemEvent) {
         this.mItemEvent = itemEvent;
     }
 

@@ -8,7 +8,9 @@ import android.view.View;
 
 public interface IItemVew {
 
-    View getItemView();
+    default IItemVew getItemView(){
+        return this;
+    }
 
     <T extends IItemData>void setData(int position, T data, IItemEvent itemEvent);
 }

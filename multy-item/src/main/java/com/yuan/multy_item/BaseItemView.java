@@ -6,23 +6,22 @@ import android.support.annotation.Nullable;
 import android.support.annotation.Size;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-public abstract class BItemView extends LinearLayout {
-    public BItemView(Context context) {
+public abstract class BaseItemView extends LinearLayout{
+
+    public BaseItemView(Context context) {
         this(context, null);
     }
 
-    public BItemView(Context context, @Nullable AttributeSet attrs) {
+    public BaseItemView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BItemView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public BaseItemView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setView();
-        initialize();
     }
 
     private void setView() {
@@ -32,18 +31,10 @@ public abstract class BItemView extends LinearLayout {
         setLayoutParams(layoutParams);
     }
 
-    protected abstract @LayoutRes
-    int getContentView();
+    protected abstract @LayoutRes int getContentView();
 
-    protected abstract void initialize();
-
-    protected abstract @Size(min = 4, max = 4)
-    int[] getPadding();
-
-    protected void handleItemClick(int position, IItemData data, IItemEvent itemEvent) {
-        if (itemEvent != null) {
-            setOnClickListener(v -> itemEvent.onItemClick(position, data));
-        }
+    protected @Size(min = 4, max = 4) int[] getPadding(){
+        return new int[]{0, 20, 0, 0};
     }
 
 }
