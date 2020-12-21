@@ -3,6 +3,7 @@ package com.yuan.recyclerviewmultyitemdemo.item;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.yuan.annotation.Item;
@@ -14,7 +15,7 @@ import com.yuan.recyclerviewmultyitemdemo.ColorTemplate;
 import com.yuan.recyclerviewmultyitemdemo.R;
 
 /**
- * Created by yuan 2019/2/13.
+ * Created by yuan 2020/12/3.
  */
 @Item(type = 0)
 public class ItemView0 extends BaseItemView implements IItemVew {
@@ -30,7 +31,7 @@ public class ItemView0 extends BaseItemView implements IItemVew {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void setData(int position, IItemData data, IItemEvent itemEvent) {
+    public void setData(RecyclerView.ViewHolder holder, int position, IItemData data, IItemEvent itemEvent) {
         TextView textView = findViewById(R.id.textView);
         textView.setText("类型: " + data.getViewType());
         setBackgroundColor(Color.parseColor(ColorTemplate.COLOR_0));

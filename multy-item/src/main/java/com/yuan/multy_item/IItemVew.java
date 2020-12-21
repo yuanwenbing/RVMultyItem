@@ -1,5 +1,6 @@
 package com.yuan.multy_item;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
@@ -12,6 +13,6 @@ public interface IItemVew {
         return this;
     }
 
-    <T extends IItemData>void setData(int position, T data, IItemEvent itemEvent);
+    <T extends IItemData>void setData(RecyclerView.ViewHolder viewHolder, int position, T data, IItemEvent itemEvent);
 }
 

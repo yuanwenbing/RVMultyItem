@@ -4,7 +4,7 @@ import com.yuan.annotation.Path;
 import com.yuan.multy_item.IItemData;
 
 /**
- * Created by yuan 2019/2/15.
+ * Created by yuan 2020/12/3.
  */
 @Path(path = "com.yuan.recyclerviewmultyitemdemo")
 public class ItemData implements IItemData {

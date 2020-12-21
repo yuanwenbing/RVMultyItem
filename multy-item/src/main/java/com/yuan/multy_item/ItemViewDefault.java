@@ -1,6 +1,7 @@
 package com.yuan.multy_item;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 
 /**
  * Created by yuan 2019/2/13.
@@ -17,7 +18,7 @@ public class ItemViewDefault extends BaseItemView implements IItemVew {
     }
 
     @Override
-    public <T extends IItemData> void setData(int position, T data, IItemEvent itemEvent) {
+    public <T extends IItemData> void setData(RecyclerView.ViewHolder viewHolder, int position, T data, IItemEvent itemEvent) {
 
     }
 }

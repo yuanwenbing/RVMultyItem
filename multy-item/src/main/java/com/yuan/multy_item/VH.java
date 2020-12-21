@@ -16,7 +16,7 @@ public class VH extends RecyclerView.ViewHolder {
 
     <T extends IItemData> void bindData(int position, @NonNull T data, @Nullable IItemEvent itemEvent) {
         try {
-            itemVew.setData(position, data, itemEvent);
+            itemVew.setData(this, position, data, itemEvent);
         } catch (Exception e) {
             e.printStackTrace();
         }
