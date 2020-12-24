@@ -6,6 +6,7 @@ package com.yuan.processor;
 class ItemElement {
     private String simpleName;
     private String packageName;
+    private String className;
     private int value; // 注解元素值
 
     public String getSimpleName() {
@@ -22,6 +23,14 @@ class ItemElement {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public int getValue() {

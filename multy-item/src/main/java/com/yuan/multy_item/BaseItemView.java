@@ -25,6 +25,7 @@ public abstract class BaseItemView extends LinearLayout{
     }
 
     private void setView() {
+        if(getContentView() == 0) return;
         inflate(getContext(), getContentView(), this);
         setPadding(getPadding()[0], getPadding()[1], getPadding()[2], getPadding()[3]);
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

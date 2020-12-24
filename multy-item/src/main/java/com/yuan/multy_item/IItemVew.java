@@ -9,6 +9,8 @@ import android.view.View;
 
 public interface IItemVew {
 
+    int DEFAULT_TYPE = -1;
+
     default IItemVew getItemView(){
         return this;
     }

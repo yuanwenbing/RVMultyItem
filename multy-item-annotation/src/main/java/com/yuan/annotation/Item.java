@@ -12,5 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.CLASS)
 public @interface Item {
-    int [] type();
+    int[] type();
+    String support() default "ItemViewFactory";
 }

@@ -1,4 +1,4 @@
-package com.yuan.recyclerviewmultyitemdemo;
+package com.yuan.recyclerviewmultyitemdemo.module;
 
 import com.yuan.annotation.Path;
 import com.yuan.multy_item.IItemData;

@@ -2,6 +2,7 @@ package com.yuan.multy_item;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -48,7 +49,7 @@ public abstract class MultiBaseAdapter<T extends IItemData> extends RecyclerView
         if (mDataList != null && mDataList.get(position) != null) {
             return mDataList.get(position).getViewType();
         } else {
-            return -1;
+            return IItemVew.DEFAULT_TYPE;
         }
     }
 

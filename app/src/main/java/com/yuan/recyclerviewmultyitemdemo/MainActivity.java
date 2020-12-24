@@ -15,6 +15,7 @@ import com.yuan.multy_item.IItemEvent;
 import com.yuan.multy_item.IItemVew;
 import com.yuan.multy_item.MultiBaseAdapter;
 import com.yuan.multy_item.VH;
+import com.yuan.recyclerviewmultyitemdemo.module.ItemData;
 
 import java.util.ArrayList;
 import java.util.List;

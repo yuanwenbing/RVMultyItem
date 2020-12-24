@@ -12,4 +12,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Path {
     String path();
+    String name() default "ItemViewFactory";
 }

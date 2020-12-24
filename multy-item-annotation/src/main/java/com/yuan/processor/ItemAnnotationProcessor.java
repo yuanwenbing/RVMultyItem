@@ -47,37 +47,39 @@ public class ItemAnnotationProcessor extends AbstractProcessor {
         Set<? extends Element> pathElements = roundEnv.getElementsAnnotatedWith(Path.class);
 
         String generatePath = "";
+        String generateName = "";
 
         for (Element pathElement : pathElements) {
             generatePath = pathElement.getAnnotation(Path.class).path();
-            break;
-        }
+            generateName = pathElement.getAnnotation(Path.class).name();
 
-        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(Item.class);
-        List<ItemElement> itemElementList = new ArrayList<>();
-        for (Element element : elements) {
-            // 因为BindView只作用于Class，判断注解是否是属性，不是的话直接结束
-            if (element.getKind() != ElementKind.CLASS) {
-                return false;
+            Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(Item.class);
+            List<ItemElement> itemElementList = new ArrayList<>();
+            for (Element element : elements) {
+                // 因为BindView只作用于Class，判断注解是否是属性，不是的话直接结束
+                if (element.getKind() != ElementKind.CLASS) {
+                    return false;
+                }
+                PackageElement packageElement = mElementUtils.getPackageOf(element);
+                String packageName = packageElement.getQualifiedName().toString();
+                // 获取注解元数据
+                int[] types = element.getAnnotation(Item.class).type();
+                String support = element.getAnnotation(Item.class).support();
+                // 获取属性的类
+                for (int type : types) {
+                    String simpleName = element.getSimpleName().toString();
+                    ItemElement itemElement = new ItemElement();
+                    itemElement.setSimpleName(simpleName);
+                    itemElement.setClassName(support);
+                    itemElement.setPackageName(packageName);
+                    itemElement.setValue(type);
+                    itemElementList.add(itemElement);
+                }
             }
-            PackageElement packageElement = mElementUtils.getPackageOf(element);
-            String packageName = packageElement.getQualifiedName().toString();
-            // 获取注解元数据
-            int[] types = element.getAnnotation(Item.class).type();
-            // 获取属性的类
-            for (int type : types) {
-                String simpleName = element.getSimpleName().toString();
-                ItemElement itemElement = new ItemElement();
-                itemElement.setSimpleName(simpleName);
-                itemElement.setPackageName(packageName);
-                itemElement.setValue(type);
-                itemElementList.add(itemElement);
+
+            if(elements.size()>0) {
+                new ItemGenerator().generate(mFiler, generatePath,generateName, itemElementList);
             }
-
-        }
-
-        if(elements.size()>0) {
-            new ItemGenerator().generate(mFiler, generatePath, itemElementList);
         }
         return true;
     }
